@@ -7,7 +7,7 @@
 public class Compra extends Transaccion{
     private String claveProvedor;
     
-    Compra(String fecha,String claveV,String clavePv, String claveP,float cant, Inventario i){
+    Compra(String fecha,String claveV,String clavePv, String claveP,double cant, Inventario i){
         super(fecha,claveV,claveP,cant,i);
         claveProvedor=clavePv;
         i.subirExistencia(claveProducto,cantidad);

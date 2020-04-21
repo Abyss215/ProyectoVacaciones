@@ -7,19 +7,15 @@
 public class Abarrote extends Producto{
     private String presentacion;
     
-    Abarrote(float precio,String clave, String nombre,float existencia,String present){
+    Abarrote(double precio,String clave, String nombre,double existencia,String present){
         super(precio, clave, nombre, existencia);
         this.presentacion=present;
-    }
-    
+    }    
     //gets
-    
     public String getPresentacion(){
         return presentacion;
     }
-    
-    ///sets    
-    
+    ///sets   
     public void setPresent(String present){
         presentacion=present;
     }

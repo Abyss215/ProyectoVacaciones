@@ -5,17 +5,17 @@
  * @version (a version number or a date)
  */
 public abstract class Producto{
-    protected float precio, existencia;
+    protected double precio, existencia;
     protected String nombre, clave;
     
-    Producto(float prec, String clave, String nombre, float exist){
+    Producto(double prec, String clave, String nombre, double exist){
         this.precio=prec;
         this.clave=clave;
         this.nombre=nombre;
         this.existencia=exist;
     }
     //gets
-    public float getPrecio(){
+    public double getPrecio(){
         return precio;
     }
     
@@ -27,12 +27,12 @@ public abstract class Producto{
         return nombre;
     }
     
-    public float getExistencia(){
+    public double getExistencia(){
         return existencia;
     }
     
     ///sets
-    public void setPrecio(float pre){
+    public void setPrecio(double pre){
         precio=pre;
     }
     
@@ -44,7 +44,7 @@ public abstract class Producto{
         nombre=nom;
     }
     
-    public void setExistencia(float ex){
+    public void setExistencia(double ex){
         existencia=ex;
     }
     //toString

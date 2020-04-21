@@ -67,7 +67,7 @@ public class Tienda
         
         Producto p=seleccionarProducto();
         String fecha= JOptionPane.showInputDialog("Fecha de compra", "DD/MM/AA");
-        float cantidad=Float.parseFloat(JOptionPane.showInputDialog("cantidad de compra", "00.00"));
+        double cantidad=Double.parseDouble(JOptionPane.showInputDialog("cantidad de compra", "00.00"));
         return vend.comprar(fecha,pro,p,cantidad,i,lc);
     }
     
@@ -85,25 +85,25 @@ public class Tienda
         
         Producto p=seleccionarProducto();
         String fecha= JOptionPane.showInputDialog("Fecha de compra", "DD/MM/AA");
-        float cantidad=Float.parseFloat(JOptionPane.showInputDialog("cantidad de compra", "00.00"));
+        double cantidad=Double.parseDouble(JOptionPane.showInputDialog("cantidad de compra", "00.00"));
         return vend.vender(fecha,cli,p,cantidad,i,vr);
     }
     //inventario
     public ArrayList<Producto> obtenerProductosMenoresQueX(){
-        float cantidad=Float.parseFloat(JOptionPane.showInputDialog("cantidad de minima de almacen", "00.00"));
+        double cantidad=Double.parseDouble(JOptionPane.showInputDialog("cantidad de minima de almacen", "00.00"));
         return i.menorK(cantidad);
     }
     
-    public float valorProducto(){
+    public double valorProducto(){
         Producto p=seleccionarProducto();
         return i.valorProducto(p);
     }
     
-    public float valorAlmacen(){
+    public double valorAlmacen(){
         return i.valorAlmacen();
     }
     ///ventas
-    public float ingresosDelDiaX(){
+    public double ingresosDelDiaX(){
         String fecha= JOptionPane.showInputDialog("Fecha de venta", "DD/MM/AA");
         return vr.dineroVentaDia(fecha);
     }
@@ -127,7 +127,7 @@ public class Tienda
         return vr.VendedorVentaDia(fecha,lp);
     }
     //compras
-    public float gastosDelDiaX(){
+    public double gastosDelDiaX(){
         String fecha= JOptionPane.showInputDialog("Fecha de compra", "DD/MM/AA");
         return lc.dineroCompraDia(fecha);
     }

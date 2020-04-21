@@ -16,14 +16,14 @@ public class VentasRealizadas
     VentasRealizadas(){
         listaV=new ArrayList<Venta>(1);
         gananciaDiaria.add(new ArrayList<String>(1));
-        gananciaDiaria.add(new ArrayList(1));
+        gananciaDiaria.add(new ArrayList<Double>(1));
     }
     
     public void anadirVenta(Venta v){
         listaV.add(v);       
         if(gananciaDiaria.get(0).contains(v.getFecha())){
             int x=gananciaDiaria.get(0).indexOf(v.getFecha());
-            gananciaDiaria.get(1).set(x,(v.getValorVenta()+(float)gananciaDiaria.get(1).get(x)));
+            gananciaDiaria.get(1).set(x,(v.getValorVenta()+(double)gananciaDiaria.get(1).get(x)));
         }else{
             gananciaDiaria.get(0).add(v.getFecha());
             gananciaDiaria.get(1).add(v.getValorVenta());
@@ -31,11 +31,11 @@ public class VentasRealizadas
     }
     
     ///getValor por dia
-    public float dineroVentaDia(String fecha){
-        float ganancia=0;
+    public double dineroVentaDia(String fecha){
+        double ganancia=0;
         if(gananciaDiaria.get(0).contains(fecha)){
             int x=gananciaDiaria.get(0).indexOf(fecha);
-            ganancia=(float)gananciaDiaria.get(1).get(x);
+            ganancia=(double)gananciaDiaria.get(1).get(x);
         }
         return ganancia;
     }
@@ -53,7 +53,7 @@ public class VentasRealizadas
                 Producto p=i.buscarClave(v.getClaveProducto());
                 if(lista.get(0).contains(p)){
                     int x=lista.get(0).indexOf(p);
-                    lista.get(1).set(x,(v.getCantidad()+(float)lista.get(1).get(x)));
+                    lista.get(1).set(x,(v.getCantidad()+(double)lista.get(1).get(x)));
                 }else{
                     lista.get(0).add(p);
                     lista.get(1).add(v.getCantidad());
@@ -74,7 +74,7 @@ public class VentasRealizadas
             Producto p=i.buscarClave(v.getClaveProducto());
             if(lista.get(0).contains(p)){
                 int x=lista.get(0).indexOf(p);
-                lista.get(1).set(x,(v.getCantidad()+(float)lista.get(1).get(x)));
+                lista.get(1).set(x,(v.getCantidad()+(double)lista.get(1).get(x)));
             }else{
                 lista.get(0).add(p);
                 lista.get(1).add(v.getCantidad());

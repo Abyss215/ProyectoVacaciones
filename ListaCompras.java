@@ -16,14 +16,14 @@ public class ListaCompras
     ListaCompras(){
         listaC=new ArrayList<Compra>(1);
         dineroGastado.add(new ArrayList<String>(1));
-        dineroGastado.add(new ArrayList(1));
+        dineroGastado.add(new ArrayList<Double>(1));
     }
     
     public void anadirCompra(Compra c){
         listaC.add(c);       
         if(dineroGastado.get(0).contains(c.getFecha())){
             int x=dineroGastado.get(0).indexOf(c.getFecha());
-            dineroGastado.get(1).set(x,(c.getValorVenta()+(float)dineroGastado.get(1).get(x)));
+            dineroGastado.get(1).set(x,(c.getValorVenta()+(double)dineroGastado.get(1).get(x)));
         }else{
             dineroGastado.get(0).add(c.getFecha());
             dineroGastado.get(1).add(c.getValorVenta());
@@ -31,11 +31,11 @@ public class ListaCompras
     }
     
     ///getValor por dia
-    public float dineroCompraDia(String fecha){
-        float gastado=0;
+    public double dineroCompraDia(String fecha){
+        double gastado=0;
         if(dineroGastado.get(0).contains(fecha)){
             int x=dineroGastado.get(0).indexOf(fecha);
-            gastado=(float)dineroGastado.get(1).get(x);
+            gastado=(double)dineroGastado.get(1).get(x);
         }
         return gastado;
     }
@@ -52,7 +52,7 @@ public class ListaCompras
                 Producto p=i.buscarClave(c.getClaveProducto());
                 if(lista.get(0).contains(p)){
                     int x=lista.get(0).indexOf(p);
-                    lista.get(1).set(x,(c.getCantidad()+(float)lista.get(1).get(x)));
+                    lista.get(1).set(x,(c.getCantidad()+(double)lista.get(1).get(x)));
                 }else{
                     lista.get(0).add(p);
                     lista.get(1).add(c.getCantidad());
@@ -72,7 +72,7 @@ public class ListaCompras
             Producto p=i.buscarClave(c.getClaveProducto());
             if(lista.get(0).contains(p)){
                 int x=lista.get(0).indexOf(p);
-                lista.get(1).set(x,(c.getCantidad()+(float)lista.get(1).get(x)));
+                lista.get(1).set(x,(c.getCantidad()+(double)lista.get(1).get(x)));
             }else{
                 lista.get(0).add(p);
                 lista.get(1).add(c.getCantidad());

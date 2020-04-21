@@ -16,12 +16,12 @@ public class Inventario
         almacen.add(p);
     }
     //modificar inventario
-    public void subirExistencia(String clave, float c){
+    public void subirExistencia(String clave, double c){
         Producto p=buscarClave(clave);
         p.setExistencia(p.getExistencia()+c);
     }
     
-    public void bajarExistencia(String clave, float c){
+    public void bajarExistencia(String clave, double c){
         Producto p=buscarClave(clave);
         p.setExistencia(p.getExistencia()-c);
     }
@@ -53,7 +53,7 @@ public class Inventario
         return null;
     }
     //menor a x cantidad
-    public ArrayList<Producto> menorK(float x){
+    public ArrayList<Producto> menorK(double x){
         ArrayList<Producto> menoresK=new ArrayList<Producto>(1);
         Producto p;
         itAlmacen=almacen.iterator();
@@ -75,18 +75,18 @@ public class Inventario
     
     //contador de invercion
     //valor del producto
-    public float valorProducto(Producto p){
+    public double valorProducto(Producto p){
         return p.getExistencia()*p.getPrecio();
     }
     
-    public float valorProducto(String clave){
+    public double valorProducto(String clave){
         Producto p=buscarClave(clave);
         return p.getExistencia()*p.getPrecio();
     }
     
     //valor del inventario
-    public float valorAlmacen(){
-        float valor=0;
+    public double valorAlmacen(){
+        double valor=0;
         Producto p;
         itAlmacen=almacen.iterator();
         while(itAlmacen.hasNext()){

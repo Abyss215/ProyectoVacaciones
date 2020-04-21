@@ -6,7 +6,7 @@
  */
 public class Perecedero extends Producto{
     
-    Perecedero(float precio,String clave, String nombre,float existencia){
+    Perecedero(double precio,String clave, String nombre,double existencia){
         super(precio, clave, nombre, existencia);
     }
     

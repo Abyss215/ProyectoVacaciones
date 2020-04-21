@@ -8,12 +8,11 @@
 public class Venta extends Transaccion{
     private String claveCliente;
     
-    Venta(String fecha, String claveC, String claveV, String claveP,float cant,Inventario i){
+    Venta(String fecha, String claveC, String claveV, String claveP,double cant,Inventario i){
         super(fecha,claveV,claveP,cant,i);
         i.bajarExistencia(claveProducto,cantidad);
         
     } 
-    
     //gets
     public String getClaveCliente(){
         return claveCliente;

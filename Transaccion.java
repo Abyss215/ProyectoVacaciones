@@ -7,16 +7,14 @@
 public abstract class Transaccion
 {
     protected String fecha, claveVendedor, claveProducto;
-    protected float cantidad,valor;
-    
-    Transaccion(String fecha, String claveV,String claveP,float cant,Inventario i){
+    protected double cantidad,valor;
+    Transaccion(String fecha, String claveV,String claveP,double cant,Inventario i){
         this.fecha=fecha;
         claveVendedor=claveV;
         claveProducto=claveP;
         cantidad=cant;
         valor=cantidad*i.buscarClave(claveProducto).getPrecio();
     }
-    
     //gets
     public String getFecha(){
         return fecha;
@@ -27,12 +25,11 @@ public abstract class Transaccion
     public String getClaveProducto(){
         return claveProducto;
     }
-    public float getCantidad(){
+    public double getCantidad(){
         return cantidad;
     }
-    public float getValorVenta(){
+    public double getValorVenta(){
         return valor;
     }
-    
     public abstract String toString();
 }
