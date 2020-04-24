@@ -16,14 +16,31 @@ public class Inventario
         almacen.add(p);
     }
     //modificar inventario
-    public void subirExistencia(String clave, double c){
+    public double subirExistencia(String clave, double c){
         Producto p=buscarClave(clave);
+        c=reconfigurar(c,p);
         p.setExistencia(p.getExistencia()+c);
+        return c;
     }
-    
-    public void bajarExistencia(String clave, double c){
+    public double bajarExistencia(String clave, double c){
         Producto p=buscarClave(clave);
+        c=reconfigurar(c,p);
         p.setExistencia(p.getExistencia()-c);
+        return c;
+    }
+    private double reconfigurar(double d, Producto p){
+        if(p instanceof Abarrote)
+            return d;
+        else{            
+            String x=Double.toString(d);
+            String[] a=x.split(".");
+            double e=Double.parseDouble(a[0]);
+            double ex=Double.parseDouble(a[1]);
+            if(ex>=.75) e+=.75;
+            else if(ex>=.50) e+=.50;
+            else if(ex>=.25) e+=.25;
+            return e;
+        }
     }
     //get
     public ArrayList<Producto> getProductos(){

@@ -8,12 +8,12 @@ public abstract class Transaccion
 {
     protected String fecha, claveVendedor, claveProducto;
     protected double cantidad,valor;
-    Transaccion(String fecha, String claveV,String claveP,double cant,Inventario i){
+    Transaccion(String fecha, String claveV,String claveP){
         this.fecha=fecha;
         claveVendedor=claveV;
         claveProducto=claveP;
-        cantidad=cant;
-        valor=cantidad*i.buscarClave(claveProducto).getPrecio();
+        //cantidad=cant;        
+        //valor=cantidad*i.buscarClave(claveP).getPrecio();
     }
     //gets
     public String getFecha(){
@@ -32,4 +32,5 @@ public abstract class Transaccion
         return valor;
     }
     public abstract String toString();
+
 }

@@ -8,9 +8,11 @@ public class Compra extends Transaccion{
     private String claveProvedor;
     
     Compra(String fecha,String claveV,String clavePv, String claveP,double cant, Inventario i){
-        super(fecha,claveV,claveP,cant,i);
+        super(fecha,claveV,claveP);
         claveProvedor=clavePv;
-        i.subirExistencia(claveProducto,cantidad);
+        cantidad=i.subirExistencia(claveP,cant);        
+        valor=cantidad*i.buscarClave(claveP).getPrecio();
+        
         
     }
     
